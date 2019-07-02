@@ -15,6 +15,8 @@
 		73705BE722CBBF81009745EB /* CatalogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73705BE622CBBF81009745EB /* CatalogListViewController.swift */; };
 		73705BEA22CBC0C9009745EB /* RequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73705BE922CBC0C9009745EB /* RequestAdapter.swift */; };
 		73705BEE22CBC1C4009745EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73705BED22CBC1C4009745EB /* Constants.swift */; };
+		73705BF122CBC9D1009745EB /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73705BF022CBC9D1009745EB /* Catalog.swift */; };
+		73705BF622CBCBFD009745EB /* CatalogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73705BF522CBCBFD009745EB /* CatalogListTableViewCell.swift */; };
 		948283026014E61A3E36C65C /* Pods_AssignmentPOCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E9EC0597F8C98ECEA30251 /* Pods_AssignmentPOCUITests.framework */; };
 		B40EC7755A18226FE640FD67 /* Pods_AssignmentPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60B8A0D2CF099238EE97E56 /* Pods_AssignmentPOC.framework */; };
 		D528CF734AE02F467535622D /* Pods_AssignmentPOCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412CFF7B4D738DAB02FEA72C /* Pods_AssignmentPOCTests.framework */; };
@@ -57,6 +59,8 @@
 		73705BE622CBBF81009745EB /* CatalogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListViewController.swift; sourceTree = "<group>"; };
 		73705BE922CBC0C9009745EB /* RequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAdapter.swift; sourceTree = "<group>"; };
 		73705BED22CBC1C4009745EB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		73705BF022CBC9D1009745EB /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		73705BF522CBCBFD009745EB /* CatalogListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListTableViewCell.swift; sourceTree = "<group>"; };
 		800E2FE3662A5ADA0B13ECF2 /* Pods-AssignmentPOCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentPOCTests.debug.xcconfig"; path = "Target Support Files/Pods-AssignmentPOCTests/Pods-AssignmentPOCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		86797AE3A671334C6FC4DD1D /* Pods-AssignmentPOCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentPOCTests.release.xcconfig"; path = "Target Support Files/Pods-AssignmentPOCTests/Pods-AssignmentPOCTests.release.xcconfig"; sourceTree = "<group>"; };
 		B7E9EC0597F8C98ECEA30251 /* Pods_AssignmentPOCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssignmentPOCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +120,8 @@
 		734A8B1422CBAF8D00712EC4 /* AssignmentPOC */ = {
 			isa = PBXGroup;
 			children = (
+				73705BF222CBCBAB009745EB /* TableViewCell */,
+				73705BEF22CBC9A9009745EB /* Model */,
 				73705BE822CBC0A2009745EB /* RequestAdapter */,
 				73705BE522CBBF3D009745EB /* ViewControllers */,
 				734A8B1522CBAF8D00712EC4 /* AppDelegate.swift */,
@@ -159,6 +165,22 @@
 				73705BE922CBC0C9009745EB /* RequestAdapter.swift */,
 			);
 			path = RequestAdapter;
+			sourceTree = "<group>";
+		};
+		73705BEF22CBC9A9009745EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73705BF022CBC9D1009745EB /* Catalog.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73705BF222CBCBAB009745EB /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				73705BF522CBCBFD009745EB /* CatalogListTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		B95699DFECE9ABCFCDE47C3A /* Pods */ = {
@@ -409,8 +431,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73705BF122CBC9D1009745EB /* Catalog.swift in Sources */,
 				73705BEA22CBC0C9009745EB /* RequestAdapter.swift in Sources */,
 				73705BE722CBBF81009745EB /* CatalogListViewController.swift in Sources */,
+				73705BF622CBCBFD009745EB /* CatalogListTableViewCell.swift in Sources */,
 				734A8B1622CBAF8D00712EC4 /* AppDelegate.swift in Sources */,
 				73705BEE22CBC1C4009745EB /* Constants.swift in Sources */,
 			);

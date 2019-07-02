@@ -10,4 +10,4 @@ import Foundation
 
 public let baseURL: String = "https://dl.dropboxusercontent.com/"
 public let catalogListURL: String = "s/2iodh4vg0eortkl/facts.json"
-public typealias ResponseCompletionHandler = (_ error: NSError?, _ responseJSON: NSDictionary?) -> (Void)
+public typealias ResponseCompletionHandler = (_ error: NSError?, _ responseJSON: Data?) -> (Void)

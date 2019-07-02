@@ -31,10 +31,11 @@ class RequestAdapter {
                     }
                     print(error)
                 case .success(let jsonResponse):
-                    let jsonData = jsonResponse.data(using: .utf8)!
-                    if let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) {
-                        completion(nil, dictionary as? NSDictionary ?? NSDictionary())
+                    if let jsonData = jsonResponse.data(using: .utf8) {
+                        completion(nil, jsonData)
                     }
+                    
+                    
                 }
         }
     }
