@@ -1,0 +1,6 @@
+framework module Pods_AssignmentPOC {
+  umbrella header "Pods-AssignmentPOC-umbrella.h"
+
+  export *
+  module * { export * }
+}

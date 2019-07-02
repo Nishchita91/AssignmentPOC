@@ -1,0 +1,6 @@
+framework module Pods_AssignmentPOCTests {
+  umbrella header "Pods-AssignmentPOCTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
