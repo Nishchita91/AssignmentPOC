@@ -6,6 +6,8 @@ target 'AssignmentPOC' do
   use_frameworks!
 
 pod 'Alamofire', '~> 4.0'
+pod 'SDWebImage', '~>4.0'
+pod 'MBProgressHUD', '~> 1.1.0'
 
   # Pods for AssignmentPOC
 

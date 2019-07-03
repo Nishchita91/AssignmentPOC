@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73171BB122CC8AA70084CE4A /* CatalogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73171BB022CC8AA70084CE4A /* CatalogDetailViewController.swift */; };
+		7317DCE522CD145D00F7BF2B /* CatalogListViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7317DCE422CD145D00F7BF2B /* CatalogListViewController+TableView.swift */; };
 		734A8B1622CBAF8D00712EC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A8B1522CBAF8D00712EC4 /* AppDelegate.swift */; };
 		734A8B1D22CBAF8F00712EC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 734A8B1C22CBAF8F00712EC4 /* Assets.xcassets */; };
 		734A8B2022CBAF8F00712EC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 734A8B1E22CBAF8F00712EC4 /* LaunchScreen.storyboard */; };
@@ -45,6 +47,8 @@
 		2748F5450EB83CE24A9FBC10 /* Pods-AssignmentPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentPOC.debug.xcconfig"; path = "Target Support Files/Pods-AssignmentPOC/Pods-AssignmentPOC.debug.xcconfig"; sourceTree = "<group>"; };
 		412CFF7B4D738DAB02FEA72C /* Pods_AssignmentPOCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssignmentPOCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7C5011793E404C1EE9C3F7 /* Pods-AssignmentPOCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentPOCUITests.debug.xcconfig"; path = "Target Support Files/Pods-AssignmentPOCUITests/Pods-AssignmentPOCUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		73171BB022CC8AA70084CE4A /* CatalogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailViewController.swift; sourceTree = "<group>"; };
+		7317DCE422CD145D00F7BF2B /* CatalogListViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatalogListViewController+TableView.swift"; sourceTree = "<group>"; };
 		734A8B1222CBAF8D00712EC4 /* AssignmentPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssignmentPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		734A8B1522CBAF8D00712EC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		734A8B1C22CBAF8F00712EC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				73705BE622CBBF81009745EB /* CatalogListViewController.swift */,
+				73171BB022CC8AA70084CE4A /* CatalogDetailViewController.swift */,
+				7317DCE422CD145D00F7BF2B /* CatalogListViewController+TableView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -412,12 +418,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AssignmentPOC/Pods-AssignmentPOC-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,7 +443,9 @@
 			files = (
 				73705BF122CBC9D1009745EB /* Catalog.swift in Sources */,
 				73705BEA22CBC0C9009745EB /* RequestAdapter.swift in Sources */,
+				7317DCE522CD145D00F7BF2B /* CatalogListViewController+TableView.swift in Sources */,
 				73705BE722CBBF81009745EB /* CatalogListViewController.swift in Sources */,
+				73171BB122CC8AA70084CE4A /* CatalogDetailViewController.swift in Sources */,
 				73705BF622CBCBFD009745EB /* CatalogListTableViewCell.swift in Sources */,
 				734A8B1622CBAF8D00712EC4 /* AppDelegate.swift in Sources */,
 				73705BEE22CBC1C4009745EB /* Constants.swift in Sources */,

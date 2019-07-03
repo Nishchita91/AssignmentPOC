@@ -10,9 +10,9 @@ import Foundation
 
 struct Catalog : Codable {
     var title : String!
-    var rows : [CataloType]
+    var rows : [CatalogType]
     
-    init(title: String?, rows: [CataloType]) {
+    init(title: String?, rows: [CatalogType]) {
         self.title = title
         self.rows = rows
     }
@@ -21,20 +21,20 @@ struct Catalog : Codable {
         var data = [Catalog]()
         let list = try! JSONDecoder().decode(Catalog.self, from: jsonObject)
         let rowsObject = list.rows
-        var rowsArray = [CataloType]()
+        var rowsArray = [CatalogType]()
         for object in rowsObject {
             let title = object.title
             let desc = object.description
-            let imageUrl = object.imageUrl
-            rowsArray.append(CataloType(title: title, description: desc, imageUrl: imageUrl))
+            let imageUrl = object.imageHref
+            rowsArray.append(CatalogType(title: title, description: desc, imageHref: imageUrl))
         }
         let titleList = Catalog(title: list.title, rows: rowsArray)
         data.append(titleList)      
         return data
     }
 }
-struct CataloType : Codable {
+struct CatalogType : Codable {
     var title: String?
     var description: String?
-    var imageUrl: String?
+    var imageHref: String?
 }

@@ -8,10 +8,12 @@
 
 import Foundation
 import Alamofire
+import MBProgressHUD
 
 class RequestAdapter {
     
     static let shared = RequestAdapter()
+    let progressHUD = MBProgressHUD()
     
     private init() {
     }

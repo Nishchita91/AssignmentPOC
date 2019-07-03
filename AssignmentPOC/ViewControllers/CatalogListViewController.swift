@@ -7,35 +7,47 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CatalogListViewController: UIViewController {
 
     var listTableView = UITableView()
     var refreshControl = UIRefreshControl()
-    var catalogList = [CataloType]()
+    var catalogList = [CatalogType]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.setUpTableview()
         self.getCatalogList()
     }
     
     // MARK: - Service Request
 
     func getCatalogList() {
-        RequestAdapter.shared.getCatalogList(controller: self, endPointUrl: catalogListURL) { (error, jsonResponse) -> (Void) in
-            if let data = jsonResponse {
-                let catalogList = Catalog.saveCatalog(jsonObject: data)
-                self.configureView(catalogList[0])
+        if Reachability.isConnectedToInternet {
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            RequestAdapter.shared.getCatalogList(controller: self, endPointUrl: catalogListURL) { (error, jsonResponse) -> (Void) in
+                MBProgressHUD.hide(for: self.view, animated: true)
+                if let data = jsonResponse {
+                    let catalogdata = Catalog.saveCatalog(jsonObject: data)
+                    self.configureView(catalogdata[0])
+                    self.listTableView.reloadData()
+                }
             }
+        } else {
+            let networkAlert = UIAlertController(title: "AssignmentPOC", message: "Please check your internet connection and try again later ", preferredStyle: UIAlertController.Style.alert)
+            networkAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(networkAlert, animated: true, completion: nil)
         }
+        
     }
     
     // MARK: - Configure UIView
 
     func configureView(_ catalog: Catalog) {
         self.title = catalog.title
+        self.catalogList = catalog.rows
     }
     func setUpTableview() {
         let screenSize: CGRect = UIScreen.main.bounds
@@ -58,19 +70,9 @@ class CatalogListViewController: UIViewController {
         refreshControl.endRefreshing()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
+}
 
-}
-extension CatalogListViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return catalogList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CatalogListTableViewCell
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-}
