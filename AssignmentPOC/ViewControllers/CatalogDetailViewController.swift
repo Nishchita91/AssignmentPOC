@@ -10,11 +10,11 @@ import UIKit
 
 class CatalogDetailViewController: UIViewController {
     
-    var details = CatalogType()
+    var details : Row?
     
     lazy var imageview: UIImageView = {
         let image = UIImageView()
-        image.sd_setImage(with: URL(string: details.imageHref ?? ""), placeholderImage: UIImage(named: "default"))
+        image.sd_setImage(with: URL(string: details?.imageHref ?? ""), placeholderImage: UIImage(named: "default"))
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         return image
@@ -22,10 +22,10 @@ class CatalogDetailViewController: UIViewController {
     
     lazy var descriptionLabel: UILabel = {
         let descLabel = UILabel()
-        if details.description == "" || details.description == nil {
+        if details?.rowDescription == "" || details?.rowDescription == nil {
             descLabel.text = "Data does not exist"
         } else {
-            descLabel.text = details.description
+            descLabel.text = details?.rowDescription
         }
         descLabel.numberOfLines = 0
         return descLabel
@@ -34,7 +34,7 @@ class CatalogDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = details.title
+        self.title = details?.title
         self.setUpView()
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -13,7 +13,7 @@ class CatalogListViewController: UIViewController {
 
     var listTableView = UITableView()
     var refreshControl = UIRefreshControl()
-    var catalogList = [CatalogType]()
+    var catalogList = [Row]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,17 @@ class CatalogListViewController: UIViewController {
     func getCatalogList() {
         if Reachability.isConnectedToInternet {
             MBProgressHUD.showAdded(to: self.view, animated: true)
-            RequestAdapter.shared.getCatalogList(controller: self, endPointUrl: catalogListURL) { (error, jsonResponse) -> (Void) in
+            RequestAdapter.shared.getCatalogList(endPointUrl: catalogListURL) { (error, jsonResponse) -> (Void) in
                 MBProgressHUD.hide(for: self.view, animated: true)
-                if let data = jsonResponse {
-                    let catalogdata = Catalog.saveCatalog(jsonObject: data)
-                    self.configureView(catalogdata[0])
+                guard let data = jsonResponse else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    let catalogData = try decoder.decode(Catalog.self, from: data)
+                    self.configureView(catalogData)
                     self.listTableView.reloadData()
+                    
+                } catch let err {
+                    print("Error", err)
                 }
             }
         } else {
@@ -73,6 +78,14 @@ class CatalogListViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        listTableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight);
     }
 }
 

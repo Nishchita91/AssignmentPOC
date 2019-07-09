@@ -45,10 +45,10 @@ class CatalogListTableViewCell: UITableViewCell {
         return imgView
     }()
     
-    var row : CatalogType? {
+    var row : Row? {
         didSet {
             nameLabel.text = row?.title
-            descriptionLabel.text = row?.description
+            descriptionLabel.text = row?.rowDescription
             imageview.sd_setImage(with: URL(string: row?.imageHref ?? ""), placeholderImage: UIImage(named: "default"))
         }
     }

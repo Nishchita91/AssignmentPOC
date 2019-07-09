@@ -8,19 +8,17 @@
 
 import Foundation
 import Alamofire
-import MBProgressHUD
 
 class RequestAdapter {
     
     static let shared = RequestAdapter()
-    let progressHUD = MBProgressHUD()
     
     private init() {
     }
     
     // MARK: - Request to get Catalog List : HTTP Method - GET
     
-    func getCatalogList(controller: UIViewController?, endPointUrl: String, completion: @escaping ResponseCompletionHandler) {
+    func getCatalogList(endPointUrl: String, completion: @escaping ResponseCompletionHandler) {
         let urlString = baseURL + endPointUrl
         Alamofire.request(urlString, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString
             { response in
@@ -36,8 +34,6 @@ class RequestAdapter {
                     if let jsonData = jsonResponse.data(using: .utf8) {
                         completion(nil, jsonData)
                     }
-                    
-                    
                 }
         }
     }

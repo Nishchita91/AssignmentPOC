@@ -8,33 +8,22 @@
 
 import Foundation
 
-struct Catalog : Codable {
-    var title : String!
-    var rows : [CatalogType]
-    
-    init(title: String?, rows: [CatalogType]) {
-        self.title = title
-        self.rows = rows
-    }
-    
-    static func saveCatalog(jsonObject: Data) -> [Catalog] {
-        var data = [Catalog]()
-        let list = try! JSONDecoder().decode(Catalog.self, from: jsonObject)
-        let rowsObject = list.rows
-        var rowsArray = [CatalogType]()
-        for object in rowsObject {
-            let title = object.title
-            let desc = object.description
-            let imageUrl = object.imageHref
-            rowsArray.append(CatalogType(title: title, description: desc, imageHref: imageUrl))
-        }
-        let titleList = Catalog(title: list.title, rows: rowsArray)
-        data.append(titleList)      
-        return data
-    }
+
+// MARK: - Catalog
+struct Catalog: Codable {
+    let title: String
+    let rows: [Row]
 }
-struct CatalogType : Codable {
-    var title: String?
-    var description: String?
-    var imageHref: String?
+
+// MARK: - Row
+struct Row: Codable {
+    let title, rowDescription: String?
+    let imageHref: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case rowDescription = "description"
+        case imageHref
+    }
+    
 }
